@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 ARG DEBIAN_FRONTEND=noninteractive
 
 # Add MariaDB repository
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
     software-properties-common \
     curl \
     gnupg2 \
