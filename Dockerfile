@@ -34,6 +34,7 @@ wsrep_provider=/usr/lib/galera/libgalera_smm.so\n\
 wsrep_cluster_name=galera_cluster\n\
 wsrep_cluster_address=gcomm://\n\
 wsrep_node_name=node1\n\
+wsrep_node_address=000.000.000.000\n\
 wsrep_sst_method=rsync\n\
 binlog_format=ROW\n\
 default_storage_engine=InnoDB\n\
