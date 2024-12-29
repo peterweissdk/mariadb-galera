@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     apt-transport-https=2.7.14build2 \
     curl=7.68.0-1ubuntu2 \
     gnupg2=2.4.4-2ubuntu17 \
-    rsync=3.2.7-1ubuntu1 \
+    rsync=3.2.7-1ubuntu1
 
 # Add MariaDB keyring
 RUN mkdir -p /etc/apt/keyrings \
