@@ -39,7 +39,7 @@ VOLUME ["/var/lib/mysql", "/etc/mysql/conf.d"]
 EXPOSE 3306 4444 4567 4568
 
 # Set the entrypoint script
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 ENTRYPOINT ["docker-entrypoint.sh"]
