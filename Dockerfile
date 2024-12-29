@@ -5,41 +5,32 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 # Add MariaDB repository
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    curl \
-    gnupg2 \
-    && curl -o /etc/apt/keyrings/mariadb-keyring.pgp 'https://mariadb.org/mariadb_release_signing_key.pgp' \
-    && mkdir -p /etc/apt/keyrings \
-    && chmod 644 /etc/apt/keyrings/mariadb-keyring.pgp
+    software-properties-common=0.99.48 \
+    apt-transport-https=2.7.14build2 \
+    curl=7.68.0-1ubuntu2 \
+    gnupg2=2.4.4-2ubuntu17 \
+    rsync=3.2.7-1ubuntu1 \
 
-# Add MariaDB Repository
-RUN echo "deb [signed-by=/etc/apt/keyrings/mariadb-keyring.pgp] https://mirrors.aliyun.com/mariadb/repo/11.4/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") main" > /etc/apt/sources.list.d/mariadb.list
+# Add MariaDB keyring
+RUN mkdir -p /etc/apt/keyrings \
+    && curl -o /etc/apt/keyrings/mariadb-keyring.pgp 'https://mariadb.org/mariadb_release_signing_key.pgp'
+
+# Add MariaDB 11.4 repository list
+COPY conf/sources.list/mariadb.sources /etc/apt/sources.list.d/mariadb.sources
 
 # Install MariaDB Server and Galera
-RUN apt-get install -y --no-install-recommends \
-    mariadb-server-11.4 \
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    mariadb-server \
     mariadb-backup \
     galera-4 \
     mariadb-client \
-    rsync \
     && rm -rf /var/lib/apt/lists/*
 
 # Create directory for Galera configuration
 RUN mkdir -p /etc/mysql/conf.d
 
-# Create default galera configuration
-RUN echo "[mysqld]\n\
-wsrep_on=ON\n\
-wsrep_provider=/usr/lib/galera/libgalera_smm.so\n\
-wsrep_cluster_name=galera_cluster\n\
-wsrep_cluster_address=gcomm://\n\
-wsrep_node_name=node1\n\
-wsrep_node_address=000.000.000.000\n\
-wsrep_sst_method=rsync\n\
-binlog_format=ROW\n\
-default_storage_engine=InnoDB\n\
-innodb_autoinc_lock_mode=2\n\
-bind-address=0.0.0.0" > /etc/mysql/conf.d/galera.cnf
+# Copy default Galera configuration
+COPY conf/galera/galera.cnf /etc/mysql/conf.d
 
 # Create volume mount points
 VOLUME ["/var/lib/mysql", "/etc/mysql/conf.d"]
