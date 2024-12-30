@@ -6,8 +6,8 @@ ARG DEBIAN_FRONTEND=noninteractive
 # Add MariaDB repository
 RUN apt-get update && apt-get install -y --no-install-recommends \
     software-properties-common=0.99.48 \
-    apt-transport-https=2.7.14build2 \
-    curl=7.68.0-1ubuntu2 \
+    apt-transport-https=2.7.12 \
+    curl=8.5.0-2ubuntu10 \
     gnupg2=2.4.4-2ubuntu17 \
     rsync=3.2.7-1ubuntu1 \
     && rm -rf /var/lib/apt/lists/*
