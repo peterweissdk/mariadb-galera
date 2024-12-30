@@ -3,11 +3,11 @@ FROM ubuntu:24.04
 # Prevent interactive prompts during package installation
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Add MariaDB repository
+# Install needed packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common=0.99.48 \
-    apt-transport-https=2.7.12 \
-    curl=8.5.0-2ubuntu10 \
+    software-properties-common=0.99.49.1 \
+    apt-transport-https=2.7.14build2 \
+    curl=8.5.0-2ubuntu10.6 \
     gnupg2=2.4.4-2ubuntu17 \
     rsync=3.2.7-1ubuntu1 \
     && rm -rf /var/lib/apt/lists/*
@@ -16,15 +16,15 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN mkdir -p /etc/apt/keyrings \
     && curl -o /etc/apt/keyrings/mariadb-keyring.pgp 'https://mariadb.org/mariadb_release_signing_key.pgp'
 
-# Add MariaDB 11.4 repository list
+# Add MariaDB 11.4 LTS repository list
 COPY conf/sources.list/mariadb.sources /etc/apt/sources.list.d/mariadb.sources
 
 # Install MariaDB Server and Galera
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    mariadb-server \
-    mariadb-backup \
-    galera-4 \
-    mariadb-client \
+    mariadb-server=1:11.4.4+maria~ubu2404 \
+    mariadb-backup=1:11.4.4+maria~ubu2404 \
+    galera-4=26.4.20-ubu2404 \
+    mariadb-client=1:11.4.4+maria~ubu2404 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create directory for Galera configuration
