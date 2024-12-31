@@ -97,11 +97,6 @@ The container includes a comprehensive health monitoring system that checks:
 - Cluster size and connectivity
 - Node synchronization state
 
-Health checks run every 30 seconds with the following parameters:
-- Timeout: 10 seconds
-- Start period: 5 minutes
-- Retries: 3
-
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
