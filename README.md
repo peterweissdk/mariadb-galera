@@ -1,6 +1,6 @@
-# ----- NOT PRODUCTION READY -----
-
 # 💾 MariaDB Galera Container
+
+## -----NOT PRODUCTION READY-----
 
 [![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
 [![Static Badge](https://img.shields.io/badge/Ubuntu-24.04-white?style=flat&logo=ubuntu&logoColor=white&logoSize=auto&labelColor=black)](https://www.ubuntu.com/)
