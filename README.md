@@ -1,11 +1,11 @@
-# MariaDB Galera Container
+# 💾 MariaDB Galera Container
 
 [![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
 [![Static Badge](https://img.shields.io/badge/Ubuntu-24.04-white?style=flat&logo=ubuntu&logoColor=white&logoSize=auto&labelColor=black)](https://www.ubuntu.com/)
 [![Static Badge](https://img.shields.io/badge/MariaDB-V11.4-white?style=flat&logo=mariadb&logoColor=white&logoSize=auto&labelColor=black)](https://www.mariadb.org/)
 [![Static Badge](https://img.shields.io/badge/GPL-V3-white?style=flat&logo=gnu&logoColor=white&logoSize=auto&labelColor=black)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
 
-A Docker container for running MariaDB Galera Cluster on Ubuntu 24.04, providing a highly available and scalable database solution.
+A Docker container for running MariaDB Galera Cluster on Ubuntu 24.04 base image, providing a highly available and scalable database solution.
 
 ## ✨ Features
 
@@ -13,7 +13,6 @@ A Docker container for running MariaDB Galera Cluster on Ubuntu 24.04, providing
 - MariaDB 11.4 LTS with Galera Cluster
 - Automated health monitoring
 - Optimized for container environments
-- Minimal image size with --no-install-recommends
 - Configurable through environment variables
 - Built-in backup support with mariadb-backup
 
@@ -21,7 +20,7 @@ A Docker container for running MariaDB Galera Cluster on Ubuntu 24.04, providing
 
 ```bash
 # Pull the image
-docker pull your-registry/mariadb-galera:latest
+docker pull peterweissdk/mariadb-galera:latest
 
 # Start the first node
 docker run -d \
