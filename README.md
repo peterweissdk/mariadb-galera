@@ -1,5 +1,10 @@
 # MariaDB Galera Container
 
+[![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
+[![Static Badge](https://img.shields.io/badge/Ubuntu-24.04-white?style=flat&logo=ubuntu&logoColor=white&logoSize=auto&labelColor=black)](https://www.ubuntu.com/)
+[![Static Badge](https://img.shields.io/badge/MariaDB-V11.4-white?style=flat&logo=ubuntu&logoColor=white&logoSize=auto&labelColor=black)](https://www.mariadb.org/)
+[![Static Badge](https://img.shields.io/badge/GPL-V3-white?style=flat&logo=gnu&logoColor=white&logoSize=auto&labelColor=black)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
+
 A Docker container for running MariaDB Galera Cluster on Ubuntu 24.04, providing a highly available and scalable database solution.
 
 ## ✨ Features
@@ -69,13 +74,17 @@ docker build -t mariadb-galera .
 ## 📝 Directory Structure
 
 ```
-mariadb-galera/
-├── Dockerfile              # Container definition
-├── conf/                   # Configuration files
-│   ├── galera/            # Galera specific configs
-│   └── sources.list/      # Repository sources
-├── docker-entrypoint.sh   # Container entrypoint
-└── healthcheck.sh         # Container health monitoring
+.
+├── conf
+│   ├── galera
+│   │   └── galera.cnf
+│   └── sources.list
+│       └── mariadb.sources
+├── docker-entrypoint.sh
+├── Dockerfile
+├── healthcheck.sh
+├── LICENSE
+└── README.md
 ```
 
 ## 🔍 Health Check
@@ -94,23 +103,12 @@ Health checks run every 30 seconds with the following parameters:
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## 🆘 Support
 
-For support, please:
-
-1. Check existing GitHub issues
-2. Create a new issue with:
-   - Container version
-   - Configuration used
-   - Error messages
-   - Steps to reproduce
+If you encounter any issues or need support, please file an issue on the GitHub repository.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU GENERAL PUBLIC LICENSE v3.0 - see the [LICENSE](LICENSE) file for details.
