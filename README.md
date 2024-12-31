@@ -2,7 +2,7 @@
 
 [![Static Badge](https://img.shields.io/badge/Docker-Container-white?style=flat&logo=docker&logoColor=white&logoSize=auto&labelColor=black)](https://docker.com/)
 [![Static Badge](https://img.shields.io/badge/Ubuntu-24.04-white?style=flat&logo=ubuntu&logoColor=white&logoSize=auto&labelColor=black)](https://www.ubuntu.com/)
-[![Static Badge](https://img.shields.io/badge/MariaDB-V11.4-white?style=flat&logo=ubuntu&logoColor=white&logoSize=auto&labelColor=black)](https://www.mariadb.org/)
+[![Static Badge](https://img.shields.io/badge/MariaDB-V11.4-white?style=flat&logo=mariadb&logoColor=white&logoSize=auto&labelColor=black)](https://www.mariadb.org/)
 [![Static Badge](https://img.shields.io/badge/GPL-V3-white?style=flat&logo=gnu&logoColor=white&logoSize=auto&labelColor=black)](https://www.gnu.org/licenses/gpl-3.0.en.html/)
 
 A Docker container for running MariaDB Galera Cluster on Ubuntu 24.04, providing a highly available and scalable database solution.
@@ -29,7 +29,7 @@ docker run -d \
   -e MYSQL_ROOT_PASSWORD=your_password \
   -e GALERA_CLUSTER_NAME=my_cluster \
   -e GALERA_NODE_ADDRESS=node1_ip \
-  your-registry/mariadb-galera:latest
+  peterweissdk/mariadb-galera:latest
 
 # Join additional nodes
 docker run -d \
@@ -38,7 +38,7 @@ docker run -d \
   -e GALERA_CLUSTER_NAME=my_cluster \
   -e GALERA_NODE_ADDRESS=node2_ip \
   -e GALERA_CLUSTER_ADDRESS=gcomm://node1_ip \
-  your-registry/mariadb-galera:latest
+  peterweissdk/mariadb-galera:latest
 ```
 
 ## 🔧 Configuration
@@ -73,7 +73,7 @@ docker build -t mariadb-galera .
 
 ## 📝 Directory Structure
 
-```
+```bash
 .
 ├── conf
 │   ├── galera
