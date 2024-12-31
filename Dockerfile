@@ -43,5 +43,12 @@ EXPOSE 3306 4444 4567 4568
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
+# Add healthcheck script
+COPY healthcheck.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/healthcheck.sh
+
+# Configure healthcheck
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5m --retries=3 CMD ["healthcheck.sh"]
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["mysqld"]
