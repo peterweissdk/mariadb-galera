@@ -7,6 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y --no-install-recommends \
     software-properties-common=0.99.49.1 \
     apt-transport-https=2.7.14build2 \
+    apt-utils=2.7.14build2 \
     curl=8.5.0-2ubuntu10.6 \
     gnupg2=2.4.4-2ubuntu17 \
     rsync=3.2.7-1ubuntu1 \
