@@ -65,7 +65,7 @@ docker run -d \
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mariadb-galera.git
+git clone https://github.com/peterweissdk/mariadb-galera.git
 
 # Build the image
 cd mariadb-galera
